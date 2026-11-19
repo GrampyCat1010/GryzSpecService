@@ -73,5 +73,6 @@ class Settings(BaseSettings):
                     email=self.company_email, center=self.center, hours='Круглосуточно, 24/7',
                     telegram_url=self.telegram_url, max_url=self.max_url,
                     maps_key=self.yandex_maps_api_key, org_id=self.yandex_org_id,
+                    years=self.company_years,
                     local_mode=not self.remote_db, max_photos=self.max_photos,
                     max_upload_mb=self.max_upload_mb)

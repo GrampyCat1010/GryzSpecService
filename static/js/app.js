@@ -10,5 +10,4 @@ async function start(){
   document.querySelectorAll('.submit-button').forEach(b=>b.disabled=false);
 }
 start();
-api('reviews').then(data=>{if(!safeURL(data.widget_url))return;const box=document.querySelector('#reviews-content'),iframe=el('iframe');iframe.src=data.widget_url;iframe.title='Отзывы о ГрузСпецСервис на Яндекс Картах';iframe.loading='lazy';iframe.referrerPolicy='strict-origin-when-cross-origin';box.replaceChildren(iframe);if(safeURL(data.url)){const a=el('a','text-link','Все отзывы на Яндекс Картах ↗');a.href=data.url;a.target='_blank';a.rel='noopener';box.append(a);}}).catch(()=>{});
-api('stats').then(data=>{const box=document.querySelector('#real-stats'),parts=[];if(data.completed_orders>0)parts.push(`Завершённых заявок с сайта: ${data.completed_orders.toLocaleString('ru-RU')}`);if(data.years>0)parts.push(`${data.years} лет работы`);if(parts.length){box.textContent=parts.join(' · ');box.hidden=false;}}).catch(()=>{});
+api('reviews').then(data=>{if(!safeURL(data.widget_url))return;const box=document.querySelector('#reviews-content'),iframe=el('iframe');iframe.src=data.widget_url;iframe.title='Отзывы о ГрузСпецСервис на Яндекс Картах';iframe.loading='lazy';iframe.referrerPolicy='strict-origin-when-cross-origin';box.replaceChildren(iframe);}).catch(()=>{});
