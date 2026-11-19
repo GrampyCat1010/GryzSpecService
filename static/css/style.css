@@ -126,7 +126,7 @@ html{scrollbar-width:thin;scrollbar-color:var(--red) transparent}
 .display-tool svg{width:20px;height:20px}
 .text-size-tool span{font-size:15px;font-weight:700;line-height:1}
 .hero-visual{display:grid;place-items:center;min-width:0}
-.hero-visual img{width:145%;max-width:none;height:auto;transform:translateX(-12%)}
+.hero-visual img{width:190%;max-width:none;height:auto;transform:translateX(-20%)}
 .floating-call{position:fixed;right:24px;bottom:24px;z-index:60;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:12px 18px;border-radius:8px;background:var(--red);color:var(--inverse);font-weight:650;font-size:14px;box-shadow:0 5px 18px #0003}
 .floating-call:hover{background:var(--red-hover)}
 .floating-call svg{width:19px;height:19px}
