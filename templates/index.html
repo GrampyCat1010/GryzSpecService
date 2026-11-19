@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#d8131c">
   <meta name="description" content="ГрузСпецСервис — ремонт грузового транспорта, помощь на дороге, эвакуация и обслуживание автопарков. Работаем круглосуточно.">
   <title>ГрузСпецСервис — грузовой сервис 24/7</title>
-  <link rel="icon" href="/static/images/logo-color.png" type="image/svg+xml">
+  <link rel="icon" href="/static/images/logo-color.png" type="image/png">
   <link rel="preload" href="/static/fonts/Unbounded.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="stylesheet" href="/static/css/style.css">
   <script src="/static/js/boot.js"></script>
@@ -21,6 +21,7 @@
   <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
   <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H7l-4 2 1.5-4.5A7.5 7.5 0 1 1 20 11.5Z"/><circle cx="8" cy="11.5" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="11.5" r="1" fill="currentColor" stroke="none"/><circle cx="16" cy="11.5" r="1" fill="currentColor" stroke="none"/></symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="m5 3 4 4-2 3a17 17 0 0 0 7 7l3-2 4 4-2 3C10 23 1 14 2 5Z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m3 6 9 7 9-7"/></symbol>
   <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></symbol>
   <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5 8.5 8.5 0 1 0 20.5 14.5Z"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
@@ -54,7 +55,7 @@
   <section class="view home" data-page="home" aria-labelledby="home-title">
     <div class="hero">
       <div class="hero-copy">
-        <h1 id="home-title">Большой<br>технике -<br><span>свой сервис</span></h1>
+        <h1 id="home-title" tabindex="-1">Большой<br>технике -<br><span>свой сервис</span></h1>
         <p class="hero-description">Ремонтируем на СТО, помогаем в дороге и обслуживаем автопарки</p>
         <div class="hero-actions"><button class="button primary" data-view="personal">Подать заявку <svg><use href="#i-arrow"/></svg></button><button class="button outline" data-service="help">Выезд на помощь</button></div>
       </div>
@@ -83,7 +84,7 @@
     </section>
     <div class="home-lower">
       <section class="location-panel" aria-label="Адрес сервиса"><div class="location-topline"><p class="location-address" data-contact="address">Адрес сервиса уточняется</p></div><div id="company-map" class="company-map map-placeholder"><span>Расположение сервиса появится здесь</span></div></section>
-      <section id="reviews-title" class="reviews-panel" aria-label="Отзывы клиентов"><div class="reviews-topline"><span class="yandex-sign">Я<span>ндекс</span></span></div><div id="reviews-content" class="reviews-content"><p>Отзывы организации появятся после подключения Яндекс Карт.</p><span class="muted">Только настоящие отзывы клиентов.</span></div></section>
+      <section id="reviews-title" class="reviews-panel" aria-label="Отзывы клиентов" tabindex="-1"><div class="reviews-topline"><span class="yandex-sign">Я<span>ндекс</span></span></div><div id="reviews-content" class="reviews-content"><p>Отзывы организации появятся после подключения Яндекс Карт.</p><span class="muted">Только настоящие отзывы клиентов.</span></div></section>
     </div>
   </section>
 
@@ -100,7 +101,7 @@
         <label class="check consent"><input name="consent" type="checkbox" required><span>Согласен на обработку персональных данных согласно <button type="button" data-privacy>политике конфиденциальности</button> <b>*</b></span></label>
         <p class="form-error" role="alert" hidden></p><button style="width: 100%;" type="submit" class="button primary submit-button">Отправить заявку <svg><use href="#i-arrow"/></svg></button><p class="field-hint">Поля со звёздочкой обязательны. Стоимость и перечень работ согласуем до ремонта.</p>
       </form>
-      <aside class="estimate-panel" aria-label="Предварительный расчёт"><details class="estimate-disclosure" open><summary><span>Предварительно <strong id="estimate-compact">Считаем…</strong></span><svg><use href="#i-plus"/></svg></summary><div class="estimate-body"><div class="section-line"><p class="eyebrow">ПРЕДВАРИТЕЛЬНЫЙ РАСЧЁТ</p><svg><use href="#i-activity"/></svg></div><h2 id="estimate-title">Понятный ориентир.</h2><p id="estimate-service">Ремонт на СТО</p><div class="estimate-total" id="estimate-total" aria-live="polite">Считаем…</div><dl class="estimate-details"><div><dt>Работы</dt><dd id="estimate-work">—</dd></div><div><dt>Выезд</dt><dd id="estimate-travel">—</dd></div><div><dt>Расстояние от СТО</dt><dd id="estimate-distance">—</dd></div></dl><p id="estimate-note" class="field-hint">Точная цена — после диагностики и согласования.</p><details class="price-explainer"><summary>Как считается выезд</summary><p>Базовый выезд включает первые 20 км. Далее — тариф за километр от центра сервиса. Тип транспорта и срочность влияют на итог. Для дальних маршрутов согласуем индивидуальные условия.</p><p>Если дорожный маршрут недоступен, показываем оценку по прямой с поправкой. Это ориентир, а не предложение фиксированной цены.</p></details><div class="estimate-help"><svg><use href="#i-phone"/></svg><div><strong>Нужна помощь прямо сейчас?</strong><a data-phone>Телефон диспетчера уточняется</a></div></div></div></details></aside>
+      <aside id="estimate-panel" class="estimate-panel" aria-label="Предварительный расчёт" tabindex="-1"><details class="estimate-disclosure" open><summary><span>Предварительно <strong id="estimate-compact">Считаем…</strong></span><svg><use href="#i-plus"/></svg></summary><div class="estimate-body"><div class="section-line"><p class="eyebrow">ПРЕДВАРИТЕЛЬНЫЙ РАСЧЁТ</p><svg><use href="#i-activity"/></svg></div><h2 id="estimate-title">Понятный ориентир.</h2><p id="estimate-service">Ремонт на СТО</p><div class="estimate-total" id="estimate-total" aria-live="polite">Считаем…</div><dl class="estimate-details"><div><dt>Работы</dt><dd id="estimate-work">—</dd></div><div><dt>Выезд</dt><dd id="estimate-travel">—</dd></div><div><dt>Расстояние от СТО</dt><dd id="estimate-distance">—</dd></div></dl><p id="estimate-note" class="field-hint">Точная цена — после диагностики и согласования.</p><details class="price-explainer"><summary>Как считается выезд</summary><p>Базовый выезд включает первые 20 км. Далее — тариф за километр от центра сервиса. Тип транспорта и срочность влияют на итог. Для дальних маршрутов согласуем индивидуальные условия.</p><p>Если дорожный маршрут недоступен, показываем оценку по прямой с поправкой. Это ориентир, а не предложение фиксированной цены.</p></details><div class="estimate-help"><svg><use href="#i-phone"/></svg><div><strong>Нужна помощь прямо сейчас?</strong><a data-phone>Телефон диспетчера уточняется</a></div></div></div></details></aside>
     </div>
   </section>
 
@@ -111,27 +112,39 @@
   <section class="view" data-page="settings" hidden aria-labelledby="settings-title"><div class="page-heading"><p class="eyebrow">ВАШ КОМФОРТ</p><h1 id="settings-title">Настроим под вас<span class="red"></span></h1><p>Выберите тему и сохраните контакты сервиса</p></div><div class="settings-grid"><section class="settings-section"><h2>Оформление</h2><p class="muted">Выбор сохраняется на этом устройстве</p><div class="theme-options" role="group" aria-label="Тема оформления"><button data-theme-choice="light"><span class="theme-sample light-sample"><i></i><i></i></span>Светлая<svg><use href="#i-check"/></svg></button><button data-theme-choice="dark"><span class="theme-sample dark-sample"><i></i><i></i></span>Тёмная<svg><use href="#i-check"/></svg></button><button data-theme-choice="night"><span class="theme-sample night-sample"><i></i><i></i></span>Ночная<svg><use href="#i-check"/></svg></button></div></section><section class="settings-section"><h2>На связи 24/7</h2><div class="settings-contacts"><a data-phone>Телефон уточняется</a><p data-contact="address">Адрес сервиса уточняется</p><a data-email hidden></a></div><div class="messengers"><div data-messenger="telegram"><strong>Telegram</strong><img alt="QR-код Telegram компании" width="120" height="120" hidden><a target="_blank" rel="noopener" hidden>Открыть Telegram ↗</a><small>Контакт появится здесь</small></div><div data-messenger="max"><strong>MAX</strong><img alt="QR-код MAX компании" width="120" height="120" hidden><a target="_blank" rel="noopener" hidden>Открыть MAX ↗</a><small>Контакт появится здесь</small></div></div></section><section class="settings-section settings-privacy"><div><h2>Ваши данные</h2><p class="muted">Заявки используются для связи и оказания услуг. История чата не сохраняется после закрытия</p></div><button class="button outline" data-privacy>Политика конфиденциальности</button></section></div></section>
 </main>
 <footer class="footer">
-  <div class="footer-brand-block"><span class="footer-brand">ООО «ГРУЗСПЕЦСЕРВИС»</span></div>
+  <button type="button" class="footer-brand-block" data-view="home" aria-label="ООО «ГРУЗСПЕЦСЕРВИС» — главная">
+    <img class="footer-logo logo-color" src="/static/images/logo-color.png" alt="" width="68" height="68">
+    <img class="footer-logo logo-white" src="/static/images/logo-white.png" alt="" width="68" height="68">
+    <img class="footer-brand" src="/static/images/oooservice.png" alt="" width="916" height="95">
+  </button>
   <div class="footer-columns">
     <div class="footer-column">
-      <strong>Клиентам</strong>
-      <button class="footer-link" data-view="personal">Личная заявка</button>
-      <button class="footer-link" data-view="corporate">Корпоративным клиентам</button>
+      <h2>Услуги</h2>
+      <button type="button" class="footer-link" data-service="repair">Ремонт на СТО</button>
+      <button type="button" class="footer-link" data-service="diagnostics">Диагностика 24/7</button>
+    </div>
+    <div class="footer-column">
+      <h2>Компания</h2>
+      <button type="button" class="footer-link" data-view="home" data-view-target="home-title">О компании</button>
+      <button type="button" class="footer-link" data-view="home" data-view-target="reviews-title">Отзывы</button>
+    </div>
+    <div class="footer-column">
+      <h2>Клиентам</h2>
+      <button type="button" class="footer-link" data-view="personal" data-view-target="estimate-panel">Калькулятор цены</button>
+      <button type="button" class="footer-link" data-view="corporate">Корпоративным клиентам</button>
     </div>
     <div class="footer-column footer-contacts">
-      <strong>Контакты</strong>
-      <a class="footer-link" data-phone>+7 (___) ___-__-__</a>
-      <a class="footer-link" data-email hidden></a>
-      <span class="footer-link footer-years" data-years hidden></span>
-      <div class="footer-socials">
-        <a class="footer-social" data-footer-messenger="telegram" target="_blank" rel="noopener" hidden>Telegram</a>
-        <a class="footer-social" data-footer-messenger="max" target="_blank" rel="noopener" hidden>MAX</a>
-      </div>
+      <h2>Контакты</h2>
+      <a class="footer-link" data-phone><svg aria-hidden="true"><use href="#i-phone"/></svg><span>Телефон уточняется</span></a>
+      <a class="footer-link" data-email hidden><svg aria-hidden="true"><use href="#i-mail"/></svg><span></span></a>
     </div>
   </div>
-  <div class="footer-bottom"><button class="footer-link" data-privacy>Политика конфиденциальности</button><span>© <span style="margin-right: 40px;" id="year">2026</span></span></div>
+  <div class="footer-socials" hidden>
+    <a class="footer-social" data-footer-messenger="telegram" target="_blank" rel="noopener" aria-label="Telegram" hidden><img src="/static/images/telegram.svg" alt="" width="40" height="40"></a>
+    <a class="footer-social" data-footer-messenger="max" target="_blank" rel="noopener" aria-label="MAX" hidden><img src="/static/images/max.png" alt="" width="40" height="40"></a>
+  </div>
 </footer>
-<a class="floating-call" data-call href="tel:" hidden><svg><use href="#i-phone"/></svg></a>
+<a class="floating-call" data-call href="tel:" aria-label="Позвонить диспетчеру" hidden><svg><use href="#i-phone"/></svg></a>
 <div class="toast" role="status" hidden></div>
 <dialog id="chat-dialog" class="chat-dialog" aria-labelledby="chat-title"><div class="sheet-handle" aria-hidden="true"></div><header class="chat-header"><div class="cat-avatar"><img src="/static/images/cat.webp" alt="" width="64" height="80"></div><div><h2 id="chat-title">Кот-Тимофей на связи</h2><p>Консультант по услугам сервиса</p></div><button class="icon-button" data-close-chat aria-label="Закрыть чат"><svg><use href="#i-close"/></svg></button></header><div id="chat-messages" class="chat-messages" role="log" aria-live="polite"></div><form id="chat-form" class="chat-compose"><label class="sr-only" for="chat-input">Ваш вопрос</label><input id="chat-input" placeholder="Что подсказать?" maxlength="2000" autocomplete="off" required><button class="circle-button" aria-label="Отправить вопрос"><svg><use href="#i-arrow"/></svg></button></form><p class="chat-disclaimer">ИИ-консультант может ошибаться. Стоимость и условия уточнит менеджер</p></dialog>
 <dialog id="privacy-dialog" class="content-dialog" aria-labelledby="privacy-title"><div class="dialog-title"><h2 id="privacy-title">Политика конфиденциальности</h2><button class="icon-button" data-close-dialog aria-label="Закрыть"><svg><use href="#i-close"/></svg></button></div><div id="privacy-text" class="privacy-text"></div></dialog>

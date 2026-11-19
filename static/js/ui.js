@@ -24,15 +24,31 @@ export function initDialogs(){
     }
   };
   document.querySelectorAll('dialog').forEach(dialog=>{new MutationObserver(syncPageScroll).observe(dialog,{attributes:true,attributeFilter:['open']});});
+  const call=document.querySelector('[data-call]'),footer=document.querySelector('.footer');
+  new IntersectionObserver(([entry])=>call.classList.toggle('footer-in-view',entry.isIntersecting)).observe(footer);
 }
 export function fillContacts(config){
-  document.querySelector('#year').textContent=new Date().getFullYear();
-  document.querySelectorAll('[data-phone]').forEach(a=>{a.textContent=config.phone||'+7 (___) ___-__-__';const number=config.phone.replace(/[^+\d]/g,'');if(/^\+?\d{10,15}$/.test(number))a.href='tel:'+number;});
-  const call=document.querySelector('[data-call]'),number=(config.phone||'').replace(/[^+\d]/g,'');
-  if(/^\+?\d{10,15}$/.test(number)){call.href='tel:'+number;call.hidden=false;}
+  const phone=(config.phone||'').trim(),number=phone.replace(/[^+\d]/g,'');
+  const tel=/^\+?\d{10,15}$/.test(number)?`tel:${number}`:null;
+  document.querySelectorAll('[data-phone]').forEach(a=>{
+    if(phone)(a.querySelector('span')||a).textContent=phone;
+    if(tel)a.href=tel;
+  });
+  const call=document.querySelector('[data-call]');
+  if(tel){call.href=tel;call.hidden=false;}
   document.querySelectorAll('[data-contact="address"]').forEach(e=>e.textContent=config.address||'Адрес сервиса уточняется');
-  document.querySelectorAll('[data-email]').forEach(a=>{if(config.email){a.textContent=config.email;a.href='mailto:'+config.email;a.hidden=false;}});
-  const years=Number(config.years);const yearsBox=document.querySelector('[data-years]');
-  if(yearsBox&&years>0){const label=years%10===1&&years%100!==11?'год':years%10>=2&&years%10<=4&&(years%100<10||years%100>=20)?'года':'лет';yearsBox.textContent=`${years} ${label} работы`;yearsBox.hidden=false;}
-  for(const channel of ['telegram','max']) {const block=document.querySelector(`[data-messenger="${channel}"]`),url=safeURL(config[channel+'_url']);if(url){const img=block.querySelector('img'),a=block.querySelector('a'),footerLink=document.querySelector(`[data-footer-messenger="${channel}"]`);img.src='/api/qr/'+channel;img.hidden=false;a.href=url;a.hidden=false;block.querySelector('small').hidden=true;if(footerLink){footerLink.href=url;footerLink.hidden=false;}}}
+  const email=(config.email||'').trim();
+  if(email)document.querySelectorAll('[data-email]').forEach(a=>{
+    (a.querySelector('span')||a).textContent=email;
+    a.href='mailto:'+email;a.hidden=false;
+  });
+  const socials=document.querySelector('.footer-socials');
+  for(const channel of ['telegram','max']){
+    const url=safeURL((config[channel+'_url']||'').trim());
+    if(!url)continue;
+    const block=document.querySelector(`[data-messenger="${channel}"]`),img=block.querySelector('img'),link=block.querySelector('a');
+    img.src='/api/qr/'+channel;img.hidden=false;link.href=url;link.hidden=false;block.querySelector('small').hidden=true;
+    const footerLink=socials.querySelector(`[data-footer-messenger="${channel}"]`);
+    footerLink.href=url;footerLink.hidden=false;socials.hidden=false;
+  }
 }

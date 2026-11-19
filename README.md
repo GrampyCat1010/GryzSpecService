@@ -21,7 +21,7 @@ python -m venv .venv
 |---|---|
 | `COMPANY_PHONE`, `COMPANY_ADDRESS`, `COMPANY_EMAIL` | Реальные публичные контакты; незаполненный телефон отображается заглушкой |
 | `COMPANY_LATITUDE`, `COMPANY_LONGITUDE` | Обе координаты СТО: центр расчёта расстояния и метка на карте |
-| `TELEGRAM_URL`, `MAX_URL` | Реальные HTTPS-ссылки компании; QR формируются автоматически |
+| `TELEGRAM_URL`, `MAX_URL` | Публичные HTTPS-ссылки компании в Telegram и MAX соответственно. Пустая ссылка скрывает иконку в футере; QR-коды в настройках формируются автоматически |
 | `SUPABASE_URL`, `SUPABASE_KEY` | URL проекта и серверный `service_role` ключ; никогда не отдавать браузеру |
 | `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID` | Бот и чат менеджеров для заявок |
 | `TELEGRAM_WEBHOOK_SECRET`, `PUBLIC_URL` | Секрет webhook и публичный HTTPS-адрес сайта |
