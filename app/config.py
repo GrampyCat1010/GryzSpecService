@@ -25,7 +25,7 @@ class Settings(BaseSettings):
     telegram_chat_id: str = ''
     telegram_webhook_secret: str = ''
     telegram_manager_ids: str = ''
-    mail_transport: str = 'smtp'
+    mail_transport: str = 'resend'
     smtp_host: str = ''
     smtp_port: int = 587
     smtp_user: str = ''

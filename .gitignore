@@ -30,7 +30,7 @@ logs/
 # Окружение
 .env
 .env.*
-!.env.example
+.env.example
 
 # Настройки IDE и ОС
 .vscode/

@@ -109,6 +109,26 @@ class Notifications:
             raise RuntimeError('Telegram rejected request')
         return result.get('result')
 
+    async def register_webhook(self):
+        """Keep the production callback URL registered after every deploy/restart."""
+        if not self.s.telegram_ready or not self.s.telegram_webhook_secret:
+            log.warning('Telegram webhook deferred: incomplete configuration')
+            return False
+        if not self.s.public_url.startswith('https://'):
+            log.warning('Telegram webhook deferred: PUBLIC_URL must use HTTPS')
+            return False
+        try:
+            await self.telegram_api('setWebhook', json={
+                'url': self.s.public_url.rstrip('/') + '/api/telegram/webhook',
+                'secret_token': self.s.telegram_webhook_secret,
+                'allowed_updates': ['callback_query'],
+            })
+            log.info('Telegram webhook registered')
+            return True
+        except Exception as exc:
+            log.warning('Telegram webhook registration deferred: %s', type(exc).__name__)
+            return False
+
     async def send_telegram(self, job, order):
         progress = dict(job['progress'])
         ids = list(progress.get('message_ids', []))
