@@ -140,6 +140,16 @@ html{scrollbar-width:thin;scrollbar-color:var(--red) transparent}
 .reviews-content iframe{height:420px}
 .home-lower:has(#reviews-content iframe) .company-map{height:420px}
 @media(max-width:760px){.reviews-content:has(iframe){height:440px;min-height:440px}.reviews-content iframe{height:440px}.home-lower:has(#reviews-content iframe) .company-map{height:440px}}
+.work-gallery{width:85vw;max-width:none;margin:48px auto 0;min-width:0}
+.work-gallery h2{font-size:24px;margin:0 0 20px;text-align:center}
+.work-gallery-window{overflow:hidden;touch-action:pan-y;cursor:grab;border-radius:45px}
+.work-gallery-window:active{cursor:grabbing}
+.work-gallery-track{display:flex;gap:16px;width:max-content;animation:work-gallery-scroll 40s linear infinite;will-change:transform}
+.work-gallery-window:hover .work-gallery-track{animation-play-state:paused}
+.work-gallery-track img{width:min(440px,70vw);height:auto;aspect-ratio:16/9;object-fit:cover;flex:none;border-radius:6px}
+@keyframes work-gallery-scroll{to{transform:translateX(calc(-50% - 8px))}}
+@media(max-width:760px){.work-gallery{margin-top:36px}.work-gallery h2{font-size:21px;margin-bottom:16px}.work-gallery-track img{width:82vw}}
+@media(prefers-reduced-motion:reduce){.work-gallery-window{overflow-x:auto;touch-action:auto;cursor:auto}.work-gallery-track{animation:none;will-change:auto}}
 .footer-bottom .footer-link{font-size:11px}
 .footer{padding-bottom:30px}
 .footer{border-top:1px solid var(--line);border-bottom:0}
