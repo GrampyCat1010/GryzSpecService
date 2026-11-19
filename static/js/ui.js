@@ -10,7 +10,20 @@ export function initDialogs(){
   document.querySelectorAll('[data-close-dialog]').forEach(button=>button.addEventListener('click',()=>button.closest('dialog').close()));
   document.querySelectorAll('.content-dialog').forEach(dialog=>dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}}));
   document.querySelectorAll('[data-privacy]').forEach(button=>button.addEventListener('click',async()=>{const dialog=document.querySelector('#privacy-dialog'),text=document.querySelector('#privacy-text');text.textContent='Загружаем документ…';dialog.showModal();try{text.textContent=(await api('privacy')).text;}catch(e){text.textContent=e.message;}}));
-  document.querySelectorAll('dialog').forEach(dialog=>{new MutationObserver(()=>{document.body.style.overflow=document.querySelector('dialog[open]')?'hidden':'';}).observe(dialog,{attributes:true,attributeFilter:['open']});});
+  let scrollY=0;
+  const syncPageScroll=()=>{
+    const hasOpenDialog=Boolean(document.querySelector('dialog[open]'));
+    if(hasOpenDialog&&!document.body.classList.contains('dialog-open')){
+      scrollY=window.scrollY;
+      document.body.style.top=`-${scrollY}px`;
+      document.body.classList.add('dialog-open');
+    }else if(!hasOpenDialog&&document.body.classList.contains('dialog-open')){
+      document.body.classList.remove('dialog-open');
+      document.body.style.top='';
+      window.scrollTo(0,scrollY);
+    }
+  };
+  document.querySelectorAll('dialog').forEach(dialog=>{new MutationObserver(syncPageScroll).observe(dialog,{attributes:true,attributeFilter:['open']});});
 }
 export function fillContacts(config){
   document.querySelector('#year').textContent=new Date().getFullYear();
