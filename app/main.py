@@ -85,6 +85,8 @@ def create_app(settings=None):
         app.state.repo, app.state.photos = repo, photos
         app.state.client, app.state.calculator = client, Calculator(s, client)
         app.state.notifications = Notifications(s, client, repo, photos)
+        if s.app_env == 'production':
+            await app.state.notifications.register_webhook()
         task = asyncio.create_task(app.state.notifications.run()) if s.worker_enabled else None
         polling_task = None
         if s.app_env != 'production' and s.telegram_ready:
