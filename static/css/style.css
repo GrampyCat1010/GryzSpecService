@@ -147,11 +147,11 @@ html{scrollbar-width:thin;scrollbar-color:var(--red) transparent}
   .hero{gap:8px}
   .hero-visual img{width:118%;transform:translateX(-7%)}
   .floating-call{top:auto;right:auto;left:5vw;bottom:calc(84px + env(safe-area-inset-bottom));min-height:40px;padding:8px 12px;font-size:12px}
-  .navigation .chat-nav{min-width:50px;min-height:57px;aspect-ratio:1}
+  .navigation .chat-nav{flex:0 0 48px;width:48px;height:48px;min-width:48px;min-height:48px;max-height:48px;align-self:center;border-radius:50%;padding:0}
   .navigation .chat-nav>img{width:25px;height:25px;min-width:25px;flex-basis:25px;filter:none!important}
   .footer{padding-bottom:calc(120px + env(safe-area-inset-bottom))}
   .footer .footer-link{font-size:12px}
   .footer-contacts .footer-link[data-phone],.footer-contacts .footer-link[data-email]{font-size:13px}
   .footer .footer-social{font-size:11px}
 }
-@media(max-width:390px){.header-logo{width:32px;height:32px;flex-basis:32px}.wordmark-text{font-size:11px}.display-tool{width:35px;height:35px;flex-basis:35px}.navigation .chat-nav{min-width:47px}}
+@media(max-width:390px){.header-logo{width:32px;height:32px;flex-basis:32px}.wordmark-text{font-size:11px}.display-tool{width:35px;height:35px;flex-basis:35px}.navigation .chat-nav{flex-basis:46px;width:46px;height:46px;min-width:46px;min-height:46px;max-height:46px}}
