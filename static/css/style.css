@@ -21,3 +21,7 @@ dialog{color:var(--text);background:var(--surface);border:1px solid var(--line);
 input::placeholder,textarea::placeholder{opacity:1}
 @media(max-width:760px){.dispatch-board{min-height:330px}.hours-mark{margin-top:19px;margin-bottom:14px}.board-heading{position:static;inset:auto;width:auto;font-size:17px;line-height:1.45;padding:0;margin:0}.board-bottom{padding-top:20px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media(max-width:760px){.navigation .chat-nav{width:54px;height:54px;min-height:54px;flex:0 0 54px;align-self:center;aspect-ratio:1}}
+@media(max-width:390px){.navigation .chat-nav{width:48px;height:48px;min-height:48px;flex-basis:48px}}
+.navigation .chat-nav img{width:24px;height:24px;object-fit:contain}
+@media(max-width:760px){.navigation .chat-nav img{width:34px;height:34px;object-fit:contain}}
