@@ -28,6 +28,8 @@ export function initDialogs(){
 export function fillContacts(config){
   document.querySelector('#year').textContent=new Date().getFullYear();
   document.querySelectorAll('[data-phone]').forEach(a=>{a.textContent=config.phone||'+7 (___) ___-__-__';const number=config.phone.replace(/[^+\d]/g,'');if(/^\+?\d{10,15}$/.test(number))a.href='tel:'+number;});
+  const call=document.querySelector('[data-call]'),number=(config.phone||'').replace(/[^+\d]/g,'');
+  if(/^\+?\d{10,15}$/.test(number)){call.href='tel:'+number;call.hidden=false;}
   document.querySelectorAll('[data-contact="address"]').forEach(e=>e.textContent=config.address||'Адрес сервиса уточняется');
   document.querySelectorAll('[data-email]').forEach(a=>{if(config.email){a.textContent=config.email;a.href='mailto:'+config.email;a.hidden=false;}});
   const years=Number(config.years);const yearsBox=document.querySelector('[data-years]');
